@@ -1,4 +1,60 @@
-/* YeyeYeee código aquí */
-body{
-	background-color: red;
+/* YeyeYeee código aquí 
+fondo index-inicio: #3e3f41
+amarillo #f4a728*/
+*{
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto', sans-serif;
+}
+
+/*Estilos index-inicio*/
+.inicio{
+	height: 100vh;
+	background-color:  #3e3f41;
+}
+
+.logo{
+	margin-top: 10vh;
+}
+
+.img-principal{
+	width: 35%;
+}
+
+.logo p{
+	color: #f4a728;
+	font-weight: 600;
+	font-size: 1em;
+}
+
+.form {
+	background-color: #fff;
+	margin-top: 3em;
+}
+
+.input-field i{
+	color: #f4a728;
+	margin-top: 0.4em;
+	margin-left: -0.5em
+}
+
+.btn-inicio{
+	box-shadow: none;
+    background-color: #f4a728;
+    color: #343434;
+    cursor: pointer;
+    width: 100%;
+}
+
+.registro p, .recordatorio{
+	color: #fff;
+	font-weight: 300;
+}
+
+.registro p span{
+	color: #f4a728;
+}
+
+.registro{
+	margin-top: 20%;
 }
