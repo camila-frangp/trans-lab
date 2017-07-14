@@ -5,6 +5,7 @@ amarillo #f4a728*/
 	margin: 0;
 	padding: 0;
 	font-family: 'Roboto', sans-serif;
+	font-family: 'Helvetica', FontAwesome, sans-serif;
 }
 
 /*Estilos index-inicio*/
@@ -21,21 +22,25 @@ amarillo #f4a728*/
 	width: 35%;
 }
 
-.logo p{
+.logo h2{
 	color: #f4a728;
 	font-weight: 600;
-	font-size: 1em;
 }
 
-.form {
-	background-color: #fff;
-	margin-top: 3em;
+.logo img{
+	width: 50%;
 }
 
-.input-field i{
-	color: #f4a728;
-	margin-top: 0.4em;
-	margin-left: -0.5em
+.form-start{
+	margin-top: 17%;
+}
+
+.form-inicio{
+	border:none;
+	border-radius: 0px;
+	padding: 10px;
+	width: 100%;
+	height: 8vh;
 }
 
 .btn-inicio{
@@ -44,17 +49,28 @@ amarillo #f4a728*/
     color: #343434;
     cursor: pointer;
     width: 100%;
+    border-radius: 0px;
+    height: 8vh;
 }
 
-.registro p, .recordatorio{
+.recordatorio h5 a{
+	color: #fff;
+	font-weight: 300;
+	float: left;
+	margin-top: -3%;
+}
+
+.registro h5 span a{
+	color: #f4a728;
+}
+
+.registro h5{
+	margin-top: 15%;
 	color: #fff;
 	font-weight: 300;
 }
 
-.registro p span{
-	color: #f4a728;
-}
 
-.registro{
-	margin-top: 20%;
-}
+
+
+
