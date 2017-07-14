@@ -20,7 +20,7 @@ $(document).ready(function(){
 						'</div>' + 
 						'<div class="row">' +
 							'<div class="col-sm-9 col-xs-8 col-xs-offset-2 col-sm-offset-2">' +
-								'<output id="email-usuario"></output>' +
+								'<div id="email-usuario"></div>' +
 								'<input id="bip" type="number" name="bip" placeholder="Númeor de tarjeta">' +
 								'<button type="submit" class="btn add-card btn-perfil">AGREGAR TARJETA</button>' +
 							'</div>' +
@@ -36,6 +36,21 @@ $(document).ready(function(){
 							'<div class="row">' + 
 								'<div class="col-sm-9 col-xs-8 col-xs-offset-2 col-sm-offset-2 preg-frec">' +
 							'</div>' +
+							'</div>' +
+							'<div class="row">' +
+								'<button class="btn preg1">&#xf067 Puntos Bip</button>' +
+								'<div class="resp1 esconder">'+
+									'¿Qué es un Punto bip!? <br>'+
+										'Un Punto bip! es un comercio que además de vender productor y servicios, está asociado al sistema de carga bip! por lo cual sólo puedes cargar tu tarjeta bip! en ellos.' +
+								'</div>'+
+								'<button class="btn preg2">&#xf067 Tarjetas Bancarias</button>' +
+								'<div class="resp2 esconder">¿Qué es una tarjeta bip! bancaria<br>?' +
+									'Las tarjetas bip! bancarias son tarjetas de débito que emiten los bancos a sus clientes. Estas tarjetas además de permitir funciones bancarias, son tarjetas bip!, por lo tanto pueden ser utilizadas en toda la red Transantiago.'+
+								'</div>'+
+								'<button class="btn preg3">&#xf067 Atención al cliente y emergencias</button>' + 
+								'<div class="resp3 esconder">¿Qué tramites puedes hacer en una Oficina de Servicio al Cliente tarjeta bip!? <br>' +
+										'En las oficinas podrás hacer recambio de tarjetas bip!; traspasos de saldos; consultar el saldo de la tarjeta; activar cargas remotas, bloqueos de tarjetas bip! personalizadas y realizar reclamos, quejas y sugerencias al servicio.' +
+								'</div>' +
 							'</div>' +
 						'</div>');
 
@@ -59,7 +74,7 @@ $(document).ready(function(){
 						'</div>' +
 					'</div>');
 
-    var verSaldo = ('<div class="ver-ver">'+
+	var verSaldo = ('<div class="ver-ver">'+
     	'<div class="row text-center">' +
 						'<div class="col-sm-6 col-xs-6 col-xs-offset-3 col-sm-offset-3 saldo-disponible-titulo">' +
 							'<div><p><small>SALDO TOTAL</small></p></div>' +
@@ -73,7 +88,7 @@ $(document).ready(function(){
 				'</div>'
 					);
 
-var calcular = ('<div class="container calcular-c sacar ">'+
+	var calcular = ('<div class="container calcular-c sacar ">'+
 			        '<div class="row">'+
 			            '<div class="col-xs-12">'+
 			                '<div class="col-sm-10 col-xs-10 col-xs-offset-1 col-sm-offset-1 num-tar">'+
@@ -147,6 +162,15 @@ var carlcularVer = ('<div class="ver-costo">' +
     $('.preguntas').click(function(){
     	$('.sacar').remove();
     	$('#dinamico').append(preguntas);
+    	$('.preg1').click(function(){
+    		$('.resp1').toggle();
+    	});
+    	$('.preg2').click(function(){
+    		$('.resp2').toggle();
+    	});
+    	$('.preg3').click(function(){
+    		$('.resp3').toggle();
+    	});
     });
 
     $('.saldo').click(function(){
@@ -187,19 +211,28 @@ var carlcularVer = ('<div class="ver-costo">' +
         
         var emailVal = /^([a-zA-Z0-8_.+-])+\@(([a-zA-Z0-8-])+\.)+([a-zA-Z0-9]{2,4})+$/;
         var passVal = /([0-9]{8})/;
+
+        localStorage.email = $(".email-inicio").val();
+        $('#email-usuario').text(localStorage.email);
+
         
         if(!emailVal.test(email))
         {
             $(".email-error").html("Ingrese correo válido");    
         }
-        else if(pass.length<7 || passVal.test(pass)==false)
+        else if(pass.length < 8  || passVal.test(pass)==false)
         {
             $(".pass-error").html("Su contraseña debe contener 8 caracteres y sólo números");
         }
         else
         {
             window.location.href = "index-contenido.html"
-            localStorage.getItem(email);
+            
         }
     });
+
+    //Imprimir respuestas de preguntas
+		
+
+
 });

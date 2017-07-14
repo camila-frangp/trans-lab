@@ -270,6 +270,35 @@ nav {
   letter-spacing: 2px;
 }
 
+.esconder{
+  display: none;
+}
+
+.preg1{
+  margin-top: 30%;
+}
+.preg1, .preg2, .preg3{
+  background-color: #fff;
+  width: 350px;
+  margin-left: 40px;
+  height: 5vh;
+  border:none;
+  border-bottom: 1px solid #3e3f41;
+  text-align: left;
+}
+
+.resp1, .resp2, .resp3{
+  background-color: #fff;
+  width: 350px;
+  margin-left: 40px;
+  border:none;
+  border-bottom: 1px solid #3e3f41;
+  text-align: justify;
+  padding: 10px;
+
+
+}
+
 /*Estilos Saldo*/
 
 .num-tar{
