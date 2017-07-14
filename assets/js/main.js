@@ -22,9 +22,11 @@ $(document).ready(function(){
 							'<div class="col-sm-9 col-xs-8 col-xs-offset-2 col-sm-offset-2">' +
 								'<div id="email-usuario"></div>' +
 								'<input id="bip" type="number" name="bip" placeholder="Númeor de tarjeta">' +
+								'<div class="val-bip"></div>'+
 								'<button type="submit" class="btn add-card btn-perfil">AGREGAR TARJETA</button>' +
 							'</div>' +
 						'</div>' +
+						'<div class="bip-save"></div>'+
 					'</div>') ; 
 
     var preguntas = (	'<div class="container preguntas-c sacar ">' +
@@ -157,6 +159,21 @@ var carlcularVer = ('<div class="ver-costo">' +
     $('.perfil').click(function(){
     	$('.sacar').remove();
     	$('#dinamico').append(perfil);
+    	//Validación  tarjeta bip
+
+	    $('.btn-perfil').click(function(){
+	    	var numBip = $('#bip').val();
+
+	    	localStorage.bip = $('#bip').val();
+
+	    	if(numBip.length != 8){
+	    		$('.val-bip').html("Númeor de tarjeta bip incorrecto, deben ser 8 dígitos")
+	    	}else{
+	    		$('.bip-save').append('<p class="bipbip">' + numBip + '</p>');
+	    		$('.val-bip').removeClass();
+	    		$('#bip').val('');
+    	}
+    })
     });
 
     $('.preguntas').click(function(){
@@ -220,7 +237,7 @@ var carlcularVer = ('<div class="ver-costo">' +
         {
             $(".email-error").html("Ingrese correo válido");    
         }
-        else if(pass.length < 8  || passVal.test(pass)==false)
+        else if(pass.length != 8  || passVal.test(pass)==false)
         {
             $(".pass-error").html("Su contraseña debe contener 8 caracteres y sólo números");
         }
@@ -231,7 +248,7 @@ var carlcularVer = ('<div class="ver-costo">' +
         }
     });
 
-    //Imprimir respuestas de preguntas
+    
 		
 
 

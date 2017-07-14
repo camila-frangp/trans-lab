@@ -255,6 +255,19 @@ nav {
   letter-spacing: 2px;
 }
 
+.bip-save{
+  margin-left: 33%;
+  margin-top: 5%;
+}
+
+.bipbip{
+  background-color: #fff;
+  width: 40%;
+  padding: 2%;
+  text-align: center;
+  color: #3e3f41;
+}
+
 /*Estilos Preguntas frecuentes*/
 
 .preguntas-c{
