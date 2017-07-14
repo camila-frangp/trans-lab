@@ -59,7 +59,7 @@ $(document).ready(function(){
     var saldo = (	'<div class="container saldo-c sacar ">' +
 						'<div class="row ">' + 
 							'<div class="col-sm-10 col-xs-10 col-xs-offset-1 col-sm-offset-1 num-tar">'+
-								'<p>Número de Tarjeta</p>' +
+								'<input id="bip" type="number" name="bip" placeholder="Númeor de tarjeta">' +
 							'</div>' +
 							'<div class="col-sm-10 col-xs-10  sel-tar">' +
 								'<select class=" form-control elegir-tarjeta" id="select-card">' +
@@ -94,21 +94,19 @@ $(document).ready(function(){
 			        '<div class="row">'+
 			            '<div class="col-xs-12">'+
 			                '<div class="col-sm-10 col-xs-10 col-xs-offset-1 col-sm-offset-1 num-tar">'+
-							'<p>Número de Tarjeta</p>'+
+							'<input id="bip" type="number" name="bip" placeholder="Númeor de tarjeta">'+
 						'</div>'+
 			            ' <div class="col-xs-6 select-cal">'+
 			                '<span>Tarifa</span>'+
-			                '<select class="form-control ">'+
-			                        '<option>-Bip 1-</option>'+
-			                        '<option>Bip 2</option>'+
-			                        '<option>Bip 3</option>'+
-			                        '<option>Bip 4</option>'+
-			                        '<option>Bip 5</option>'+    
-			                    '</select>'+
+			                '<select class="form-control precios ">'+
+			                        '<option id="740">$740</option>'+
+			                        '<option id="680">$680</option>'+
+			                        '<option id="740">$640</option>'+   
+			                '</select>'+
 			                '</div>'+
 			                '<div class="col-xs-6 select-cal">'+
 			                    '<span>Tarjeta</span>'+
-			                   ' <select class="form-control ">'+
+			                   ' <select class="form-control saldosTarjetas">'+
 			                        '<option>-Bip A</option>'+
 			                        '<option>Bip B</option>'+
 			                        '<option>Bip C</option>'+
@@ -130,7 +128,7 @@ var carlcularVer = ('<div class="ver-costo">' +
 						'</div>' +
 						'<div class="row text-center">' + 
 							'<div class="col-sm-6 col-xs-6 col-xs-offset-3 col-sm-offset-3 cal-disponible">' +
-								'<div id="cal-tarifa"><p><big>$680</big></p></div>' +
+								'<div id="cal-tarifa"></div>' +
 							'</div>' +
 						'</div>' +
 					'</div>' +
@@ -142,14 +140,11 @@ var carlcularVer = ('<div class="ver-costo">' +
 						'</div>' +
 						'<div class="row text-center">' +
 							'<div class="col-sm-6 col-xs-6 col-xs-offset-3 col-sm-offset-3 cal-disponible">' +
-								'<div id="cal-total"><p><big>$1.234</big></p></div>' +
+								'<div id="cal-total"></div>' +
 							'</div>' +
 						'</div>' +
 					'</div>');
-					
-	            
-
-    
+  
 
     $('.home').click(function(){
     	$('.sacar').remove();
@@ -159,10 +154,15 @@ var carlcularVer = ('<div class="ver-costo">' +
     $('.perfil').click(function(){
     	$('.sacar').remove();
     	$('#dinamico').append(perfil);
+    	var email = $(".email-inicio").val();
+    	localStorage.setItem("email",email);
+    	$('#email-usuario').text(localStorage.getItem("email"));
+
     	//Validación  tarjeta bip
 
 	    $('.btn-perfil').click(function(){
 	    	var numBip = $('#bip').val();
+	    	var arrbip = [];
 
 	    	localStorage.bip = $('#bip').val();
 
@@ -172,7 +172,13 @@ var carlcularVer = ('<div class="ver-costo">' +
 	    		$('.bip-save').append('<p class="bipbip">' + numBip + '</p>');
 	    		$('.val-bip').removeClass();
 	    		$('#bip').val('');
-    	}
+    		}
+
+    		arrbip.push(numBip);
+    		localStorage.setItem("numBip", JSON.stringify(arrbip));
+    		console.log(arrbip);
+
+
     })
     });
 
@@ -191,18 +197,28 @@ var carlcularVer = ('<div class="ver-costo">' +
     });
 
     $('.saldo').click(function(){
+    	
     	$('.sacar').remove();
     	$('#dinamico').append(saldo);
     	$('#ver-total').click(function(){
 	    	$('.container.saldo-c.sacar').append(verSaldo);
+	    	
 	    });
     });
 
      $('.tarifa').click(function(){
+     	
     	$('.sacar').remove();
     	$('#dinamico').append(calcular);
     	$('.btn-calcular').click(function(){
 	    	$('.container.calcular-c.sacar').append(carlcularVer);
+	    	var valor = $('.precios').val();
+	    	console.log(valor);
+	    	$('#cal-tarifa').html(valor);
+	    	var saldoBip = $('.saldosTarjetas').val();
+	    	console.log(saldoBip);
+	    	$('#cal-total').html(saldoBip);
+
 	    });
     });
 
@@ -230,9 +246,7 @@ var carlcularVer = ('<div class="ver-costo">' +
         var passVal = /([0-9]{8})/;
 
         localStorage.email = $(".email-inicio").val();
-        $('#email-usuario').text(localStorage.email);
-
-        
+ 
         if(!emailVal.test(email))
         {
             $(".email-error").html("Ingrese correo válido");    
@@ -244,12 +258,9 @@ var carlcularVer = ('<div class="ver-costo">' +
         else
         {
             window.location.href = "index-contenido.html"
-            
         }
     });
 
-    
-		
 
 
 });
