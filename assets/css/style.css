@@ -1,6 +1,7 @@
 /* YeyeYeee código aquí 
 fondo index-inicio: #3e3f41
-amarillo #f4a728*/
+amarillo #f4a728
+fondo index-contenido: #dddee0*/
 *{
 	margin: 0;
 	padding: 0;
@@ -69,6 +70,123 @@ amarillo #f4a728*/
 	color: #fff;
 	font-weight: 300;
 }
+
+/*Estilos index-contenido.html*/
+
+#contenido{
+	background-color: #dddee0;
+}
+
+
+
+/*Estilos Navbar y menu slide*/
+a.nav-expander {
+  background: none repeat scroll 0 0 #3e3f41;
+  color: #dddee0;
+  display: block;
+  font-size: 15px;
+  font-weight: 400;
+  height: 50px;
+  margin-left: 0;
+  padding: 1em 1.6em 2em;
+  position: absolute;
+  left: 0;
+  text-decoration: none;
+  text-transform: uppercase;
+  top: 0;
+  transition: left 0.3s ease-in-out 0s;
+  width: 130px;
+  z-index: 12;
+
+  transition: left 0.3s ease-in-out 0s;
+  -webkit-transition: left 0.3s ease-in-out 0s;
+  -moz-transition: left 0.3s ease-in-out 0s;
+  -o-transition: left 0.3s ease-in-out 0s;
+}
+
+.navbar-inverse {
+    background-color: #3e3f41;
+    border:none;
+    height: 10vh;
+}
+
+a.nav-expander:hover {
+  cursor: pointer;
+}
+
+a.nav-expander.fixed {
+  position: fixed;
+  font-size: 1.5em;
+}
+
+.nav-expanded a.nav-expander.fixed {
+    left: 20em;
+}
+
+nav {
+  background: #fff;
+  display: block;
+  height: 100%;
+  overflow: auto;
+  position: fixed;
+  left: -20em;
+  font-size: 15px;
+  top: 0;
+  width: 20em;
+  z-index: 2000;
+  
+  transition: left 0.3s ease-in-out 0s;
+  -webkit-transition: left 0.3s ease-in-out 0s;
+  -moz-transition: left 0.3s ease-in-out 0s;
+  -o-transition: left 0.3s ease-in-out 0s;
+
+}
+.nav-expanded nav {
+  left: 0;
+}
+
+.nav-expanded {
+  margin-left: 0em;
+  transition: left 0.4s ease-in-out 0s;
+  -webkit-transition: left 0.4s ease-in-out 0s;
+  -moz-transition: left 0.4s ease-in-out 0s;
+  -o-transition: left 0.4s ease-in-out 0s;
+}
+
+#nav-close {
+  font-weight: 300;
+  font-size: 24px;
+  padding-left: 10px;
+}
+
+.main-menu {
+  padding-top: 12px;
+}
+
+.main-menu li {
+  margin-left: 20px;
+  font-size: 18px;
+  padding: 12px;
+}
+
+.main-menu li a {
+  color: #3e3f41;
+  text-decoration: none;
+}
+
+.icon-menu{
+	color: #f4a728;
+}
+
+.navbar-brand.title{
+	margin-left: 40%;
+	color: #dddee0;
+	margin-top: 2%;
+}
+
+
+
+
 
 
 
