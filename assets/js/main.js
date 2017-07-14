@@ -99,9 +99,9 @@ $(document).ready(function(){
 			            ' <div class="col-xs-6 select-cal">'+
 			                '<span>Tarifa</span>'+
 			                '<select class="form-control precios ">'+
-			                        '<option id="740">$740</option>'+
-			                        '<option id="680">$680</option>'+
-			                        '<option id="740">$640</option>'+   
+			                        '<option value="740">$740</option>'+
+			                        '<option value="680">$680</option>'+
+			                        '<option value="640">$640</option>'+   
 			                '</select>'+
 			                '</div>'+
 			                '<div class="col-xs-6 select-cal">'+
@@ -151,6 +151,7 @@ var carlcularVer = ('<div class="ver-costo">' +
     	$('#dinamico').append(home);
     });
 
+    //DIV perfil
     $('.perfil').click(function(){
     	$('.sacar').remove();
     	$('#dinamico').append(perfil);
@@ -159,13 +160,12 @@ var carlcularVer = ('<div class="ver-costo">' +
     	$('#email-usuario').text(localStorage.getItem("email"));
 
     	//Validación  tarjeta bip
-
 	    $('.btn-perfil').click(function(){
 	    	var numBip = $('#bip').val();
 	    	var arrbip = [];
 
 	    	localStorage.bip = $('#bip').val();
-
+	    	
 	    	if(numBip.length != 8){
 	    		$('.val-bip').html("Númeor de tarjeta bip incorrecto, deben ser 8 dígitos")
 	    	}else{
@@ -173,15 +173,14 @@ var carlcularVer = ('<div class="ver-costo">' +
 	    		$('.val-bip').removeClass();
 	    		$('#bip').val('');
     		}
-
+    		//Se guardan numeros de tarjeta bip ingresadas
     		arrbip.push(numBip);
     		localStorage.setItem("numBip", JSON.stringify(arrbip));
-    		console.log(arrbip);
-
-
-    })
+    		console.log(arrbip)
+    	})
     });
 
+     //DIV preguntas frecuentes
     $('.preguntas').click(function(){
     	$('.sacar').remove();
     	$('#dinamico').append(preguntas);
@@ -196,6 +195,7 @@ var carlcularVer = ('<div class="ver-costo">' +
     	});
     });
 
+     //DIV saldo
     $('.saldo').click(function(){
     	
     	$('.sacar').remove();
@@ -225,6 +225,7 @@ var carlcularVer = ('<div class="ver-costo">' +
 	    });
     });
 
+     //DIV tarifa
      $('.tarifa').click(function(){
      	
     	$('.sacar').remove();
@@ -235,8 +236,28 @@ var carlcularVer = ('<div class="ver-costo">' +
 	    	console.log(valor);
 	    	$('#cal-tarifa').html(valor);
 	    	var saldoBip = $('.saldosTarjetas').val();
-	    	console.log(saldoBip);
-	    	$('#cal-total').html(saldoBip);
+	    	
+	    	var inputSaldo = $('#bip').val();
+		    $.ajax({
+		    url: 'http://bip-servicio.herokuapp.com/api/v1/solicitudes.json?bip=' + inputSaldo,
+		    type: 'GET',
+		    dataType: 'json',
+			})
+			.done(function(res) {
+			    console.log("success");
+			    
+			    var saldoRest = res.saldoTarjeta - 500;
+			    $('#cal-total').html(saldoRest);
+			   
+			})
+			.fail(function() {
+			    console.log("error");
+			})
+			.always(function() {
+			    console.log("complete");
+			});
+
+
 	    });
     });
 
