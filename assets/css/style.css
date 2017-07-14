@@ -299,9 +299,6 @@ nav {
   margin-left: 25%;
 }
 
-.no-ver-saldo{
-  display: none;
-}
 
 .saldo-disponible-titulo{
   margin-top: 10%;
@@ -314,6 +311,52 @@ nav {
 }
 
 .saldo-disponible{
+  background-color: #f4a728;
+  height: 8vh;
+  color: #3e3f41;
+  font-weight: 600;
+  padding: 3%;
+}
+
+/*Estilos Calcular Saldo*/
+
+.calcula-c{
+  margin-top: 30%;
+  border-bottom: 1px solid #3e3f41;
+  color: #3e3f41;
+}
+
+.select-cal{
+  margin-top: 10%;
+  color: #3e3f41;
+  margin-bottom: 10%;
+}
+
+.btn-calcular{
+  display: block;
+  width: 50%;
+  height: 5vh;
+  margin-top: 30%;
+  background-color: #f4a728;
+  border-radius: 0;
+  color: #fff;
+  font-weight: 300;
+  padding: 0 2%;
+  letter-spacing: 2px;
+  margin-left: 25%;
+}
+
+.cal-disponible-titulo{
+  margin-top: 10%;
+  width: 50%;
+  background-color: #3e3f41;
+  height: 4vh;
+  color: #fff;
+  font-weight: 300;
+
+}
+
+.cal-disponible{
   background-color: #f4a728;
   height: 8vh;
   color: #3e3f41;
