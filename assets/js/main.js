@@ -206,7 +206,7 @@ var carlcularVer = ('<div class="ver-costo">' +
 	    	var inputSaldo = $('#bip').val();
 	    	console.log(inputSaldo);
 		    $.ajax({
-		    url: 'http://bip-servicio.herokuapp.com/api/v1/solicitudes.json?bip=' + inputSaldo,
+		    url: 'https://bip-servicio.herokuapp.com/api/v1/solicitudes.json?bip=' + inputSaldo,
 		    type: 'GET',
 		    dataType: 'json',
 			})
@@ -239,13 +239,12 @@ var carlcularVer = ('<div class="ver-costo">' +
 	    	
 	    	var inputSaldo = $('#bip').val();
 		    $.ajax({
-		    url: 'http://bip-servicio.herokuapp.com/api/v1/solicitudes.json?bip=' + inputSaldo,
+		    url: 'https://bip-servicio.herokuapp.com/api/v1/solicitudes.json?bip=' + inputSaldo,
 		    type: 'GET',
 		    dataType: 'json',
 			})
 			.done(function(res) {
 			    console.log("success");
-			    
 			    var saldoRest = res.saldoTarjeta - 500;
 			    $('#cal-total').html(saldoRest);
 			   
