@@ -44,6 +44,10 @@ fondo index-contenido: #dddee0*/
 	height: 8vh;
 }
 
+.email-error, .pass-error{
+  color: #fff;
+}
+
 .btn-inicio{
 	box-shadow: none;
     background-color: #f4a728;

@@ -132,9 +132,7 @@ var carlcularVer = ('<div class="ver-costo">' +
 					
 	            
 
-    $('.btn-inicio').click(function(){
-       	window.location.href = "index-contenido.html"
-    });
+    
 
     $('.home').click(function(){
     	$('.sacar').remove();
@@ -167,24 +165,41 @@ var carlcularVer = ('<div class="ver-costo">' +
 	    });
     });
 
+    //Navigation Menu Slider
+    $('#nav-expander').on('click',function(e){
+      	e.preventDefault();
+      	$('header').toggleClass('nav-expanded');
+      	$('.pull-left').css("display","none");
+    });
+
+  	$('#nav-close').on('click',function(e){
+      	e.preventDefault();
+      	$('header').removeClass('nav-expanded');
+      	$('.pull-left').css("display","inline-block");
+    });
+
     
-
-
-
-
-    
-
-
-       //Navigation Menu Slider
-        $('#nav-expander').on('click',function(e){
-      		e.preventDefault();
-      		$('header').toggleClass('nav-expanded');
-      		$('.pull-left').css("display","none");
-      	});
-
-      	$('#nav-close').on('click',function(e){
-      		e.preventDefault();
-      		$('header').removeClass('nav-expanded');
-      		$('.pull-left').css("display","inline-block");
-      	});
+      
+  	//Validación formulario index-incio.html
+    $(".btn-inicio").click(function validar(email,pass){
+        var email = $(".email-inicio").val();
+        var pass = $(".pass-inicio").val();
+        
+        var emailVal = /^([a-zA-Z0-8_.+-])+\@(([a-zA-Z0-8-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        var passVal = /([0-9]{8})/;
+        
+        if(!emailVal.test(email))
+        {
+            $(".email-error").html("Ingrese correo válido");    
+        }
+        else if(pass.length<7 || passVal.test(pass)==false)
+        {
+            $(".pass-error").html("Su contraseña debe contener 8 caracteres y sólo números");
+        }
+        else
+        {
+            window.location.href = "index-contenido.html"
+            localStorage.getItem(email);
+        }
+    });
 });
