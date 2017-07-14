@@ -84,7 +84,7 @@ $(document).ready(function(){
 					'</div>' +
 					'<div class="row text-center">' +
 						'<div class="col-sm-6 col-xs-6 col-xs-offset-3 col-sm-offset-3 saldo-disponible">' +
-							'<div id="saldo-total"><p><big>$1.234</big></p></div>' +
+							'<div id="saldo-total"></div>' +
 						'</div>' +
 					'</div>'+
 				'</div>'
@@ -202,6 +202,25 @@ var carlcularVer = ('<div class="ver-costo">' +
     	$('#dinamico').append(saldo);
     	$('#ver-total').click(function(){
 	    	$('.container.saldo-c.sacar').append(verSaldo);
+	    	 //API SALDO BIP
+	    	var inputSaldo = $('#bip').val();
+	    	console.log(inputSaldo);
+		    $.ajax({
+		    url: 'http://bip-servicio.herokuapp.com/api/v1/solicitudes.json?bip=' + inputSaldo,
+		    type: 'GET',
+		    dataType: 'json',
+			})
+			.done(function(res) {
+			    console.log("success");
+			    $('#saldo-total').html(res.saldoTarjeta);
+			    console.log(res.inputSaldo)
+			})
+			.fail(function() {
+			    console.log("error");
+			})
+			.always(function() {
+			    console.log("complete");
+			});
 	    	
 	    });
     });
@@ -218,7 +237,6 @@ var carlcularVer = ('<div class="ver-costo">' +
 	    	var saldoBip = $('.saldosTarjetas').val();
 	    	console.log(saldoBip);
 	    	$('#cal-total').html(saldoBip);
-
 	    });
     });
 
@@ -261,6 +279,8 @@ var carlcularVer = ('<div class="ver-costo">' +
         }
     });
 
+
+   
 
 
 });
