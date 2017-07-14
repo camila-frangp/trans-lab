@@ -52,6 +52,8 @@ fondo index-contenido: #dddee0*/
     width: 100%;
     border-radius: 0px;
     height: 8vh;
+    letter-spacing: 2px;
+
 }
 
 .recordatorio h5 a{
@@ -199,6 +201,8 @@ nav {
   border-radius: 0;
   color: #fff;
   font-weight: 300;
+    letter-spacing: 2px;
+
 }
 
 .prueba{
@@ -244,7 +248,81 @@ nav {
   color: #fff;
   font-weight: 300;
   padding: 0 2%;
+  letter-spacing: 2px;
 }
+
+/*Estilos Preguntas frecuentes*/
+
+.preguntas-c{
+  height: 40vh;
+  background-color: #f4a728;
+}
+
+.preguntas-c h3{
+  margin-top: 30%;
+  color: #fff;
+  line-height: 150%;
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+/*Estilos Saldo*/
+
+.num-tar{
+  margin-top: 30%;
+  border-bottom: 1px solid #3e3f41;
+  color: #3e3f41;
+}
+
+.num-tar p{
+  color: #3e3f41;
+  margin-left: -5%;
+}
+
+.elegir-tarjeta{
+  border-radius: 0;
+  margin-top: 10%;
+  width: 120%;
+}
+
+.btn-saldo{
+  display: block;
+  width: 50%;
+  height: 5vh;
+  margin-top: 10%;
+  background-color: #f4a728;
+  border-radius: 0;
+  color: #fff;
+  font-weight: 300;
+  padding: 0 2%;
+  letter-spacing: 2px;
+  margin-left: 25%;
+}
+
+.no-ver-saldo{
+  display: none;
+}
+
+.saldo-disponible-titulo{
+  margin-top: 10%;
+  width: 50%;
+  background-color: #3e3f41;
+  height: 4vh;
+  color: #fff;
+  font-weight: 300;
+
+}
+
+.saldo-disponible{
+  background-color: #f4a728;
+  height: 8vh;
+  color: #3e3f41;
+  font-weight: 600;
+  padding: 3%;
+}
+
+
+
 
 
 
